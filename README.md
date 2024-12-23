@@ -35,14 +35,76 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 **Procedure**
 
 /* write all the steps invloved */
+1. Launch Quartus on your computer and create a new project:
+Go to File → New Project Wizard.
+Specify the project name, directory, and top-level entity name (e.g., JK_FlipFlop).
+
+2. Create the JK Flip-Flop Circuit and implement the JK Flip-Flop by writing VHDL/Verilog code.
+Go to File → New → Select Verilog File.
+
+3. Compile the Project
+Click on Processing → Start Compilation.
+Fix any syntax or schematic errors if present.
+
+4. Simulate the Circuit:
+Go to Tools → University Program VWF.
+Define the inputs for J, K, and CLK in the waveform editor.
+Run the simulation and observe the waveforms.
+
+5. Verify the Results.
+Compare the simulated results with the truth table for a JK Flip-Flop
 
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+/* Program for flipflops and verify its truth table in quartus using Verilog programming.
+
+module jk_ff (j, k, clk, rst, q);
+
+  input j, k, clk, rst;
+
+  output reg q;
+  
+  always @(posedge clk or posedge rst) begin
+  
+    if (rst)
+      
+      q <= 0; // Reset the flip-flop
+   
+    else if (j == 0 && k == 0)
+    
+      q <= q; // No change
+    
+    else if (j == 0 && k == 1)
+    
+      q <= 0; // Reset
+    
+    else if (j == 1 && k == 0)
+    
+      q <= 1; // Set
+    
+    else if (j == 1 && k == 1)
+    
+      q <= ~q; // Toggle
+ 
+  end
+
+
+Developed by: Esakkindhar A
+
+RegisterNumber:24001907
 
 **RTL LOGIC FOR FLIPFLOPS**
 
+![WhatsApp Image 2024-12-22 at 20 35 14_3a8bf3b0](https://github.com/user-attachments/assets/eba0e5c3-0a7a-4dc5-8150-67626a05f811)
+
+
+
 **TIMING DIGRAMS FOR FLIP FLOPS**
 
+![WhatsApp Image 2024-12-22 at 20 35 15_0863a66e](https://github.com/user-attachments/assets/c4984491-9c0a-4b77-8d72-45eb05abe525)
+
+
+
 **RESULTS**
+Implementation of JK flipflop using verilog and validating their functionality using their functional
+tables is verified.
